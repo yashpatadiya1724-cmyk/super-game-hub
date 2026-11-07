@@ -49,6 +49,9 @@ import '../games/match3_game.dart';
 import '../games/fruit_slasher_game.dart';
 import '../games/maze_solver_game.dart';
 import '../games/smart_ai_game.dart';
+import '../games/bubble_pop_game.dart';
+import '../games/color_match_game.dart';
+import '../games/whack_a_mole_game.dart';
 
 class GameRegistry {
   static List<Game> getGames() {
@@ -246,6 +249,9 @@ class GameRegistry {
       Game(id: 'endless_runner', title: 'Endless Runner', description: 'Run as far as you can.', icon: Icons.directions_run, category: GameCategory.arcade, mode: GameMode.singlePlayer, themeColor: Colors.green, screenBuilder: (c) => const EndlessRunnerGame(), logoBuilder: (c) => const GameLogo(gameId: 'endless_runner', themeColor: Colors.green)),
       Game(id: 'maze_solver', title: 'Maze Solver', description: 'Find your way out.', icon: Icons.timeline, category: GameCategory.puzzle, mode: GameMode.singlePlayer, themeColor: Colors.indigo, screenBuilder: (c) => const MazeSolverGame(), logoBuilder: (c) => const GameLogo(gameId: 'maze_solver', themeColor: Colors.indigo)),
       Game(id: 'fruit_slasher', title: 'Fruit Slasher', description: 'Slice flying fruits.', icon: Icons.restaurant, category: GameCategory.arcade, mode: GameMode.singlePlayer, themeColor: Colors.deepOrange, screenBuilder: (c) => const FruitSlasherGame(), logoBuilder: (c) => const GameLogo(gameId: 'fruit_slasher', themeColor: Colors.deepOrange)),
+      Game(id: 'bubble_pop', title: 'Bubble Pop', description: 'Pop colorful floating bubbles.', icon: Icons.bubble_chart, category: GameCategory.casual, mode: GameMode.singlePlayer, themeColor: Colors.pinkAccent, screenBuilder: (c) => const BubblePopGame(), logoBuilder: (c) => const GameLogo(gameId: 'bubble_pop', themeColor: Colors.pinkAccent)),
+      Game(id: 'color_match', title: 'Color Match', description: 'Test your brain speed against color tricks.', icon: Icons.palette, category: GameCategory.brain, mode: GameMode.singlePlayer, themeColor: Colors.purple, screenBuilder: (c) => const ColorMatchGame(), logoBuilder: (c) => const GameLogo(gameId: 'color_match', themeColor: Colors.purple)),
+      Game(id: 'whack_a_mole', title: 'Whack A Mole', description: 'Tap fast to whack the emerging moles.', icon: Icons.pets, category: GameCategory.arcade, mode: GameMode.singlePlayer, themeColor: Colors.brown, screenBuilder: (c) => const WhackAMoleGame(), logoBuilder: (c) => const GameLogo(gameId: 'whack_a_mole', themeColor: Colors.brown)),
       
       // --- 19 New Multi Player Games ---
       Game(id: 'pong', title: 'Pong', description: 'Classic table tennis game.', icon: Icons.sports_tennis, category: GameCategory.arcade, mode: GameMode.multiPlayer, themeColor: Colors.lightGreen, screenBuilder: (c) => const PongGame(), logoBuilder: (c) => const GameLogo(gameId: 'pong', themeColor: Colors.lightGreen)),

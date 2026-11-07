@@ -103,6 +103,12 @@ class GameLogo extends StatelessWidget {
         return FingerBattleLogoPainter(color);
       case 'tap_color':
         return TapColorLogoPainter(color);
+      case 'bubble_pop':
+        return BubblePopLogoPainter(color);
+      case 'color_match':
+        return ColorMatchLogoPainter(color);
+      case 'whack_a_mole':
+        return WhackAMoleLogoPainter(color);
       default:
         return GenericLogoPainter(color, id.isNotEmpty ? id[0].toUpperCase() : 'G');
     }
@@ -832,6 +838,79 @@ class GenericLogoPainter extends CustomPainter {
     final p = Paint()..color = color..strokeWidth = 2..style = PaintingStyle.stroke;
     canvas.drawPath(Path()..moveTo(w*0.1, w*0.3)..lineTo(w*0.1, w*0.1)..lineTo(w*0.3, w*0.1), p);
     canvas.drawPath(Path()..moveTo(w*0.7, w*0.9)..lineTo(w*0.9, w*0.9)..lineTo(w*0.9, w*0.7), p);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
+}
+
+class BubblePopLogoPainter extends CustomPainter {
+  final Color color;
+  BubblePopLogoPainter(this.color);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final p = Paint()..color = color.withValues(alpha: 0.6)..style = PaintingStyle.fill;
+    final stroke = Paint()..color = color..strokeWidth = 2..style = PaintingStyle.stroke;
+
+    canvas.drawCircle(Offset(w * 0.35, w * 0.4), w * 0.22, p);
+    canvas.drawCircle(Offset(w * 0.35, w * 0.4), w * 0.22, stroke);
+
+    canvas.drawCircle(Offset(w * 0.65, w * 0.65), w * 0.25, p);
+    canvas.drawCircle(Offset(w * 0.65, w * 0.65), w * 0.25, stroke);
+
+    canvas.drawCircle(Offset(w * 0.7, w * 0.25), w * 0.12, p);
+    canvas.drawCircle(Offset(w * 0.7, w * 0.25), w * 0.12, stroke);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
+}
+
+class ColorMatchLogoPainter extends CustomPainter {
+  final Color color;
+  ColorMatchLogoPainter(this.color);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final paints = [
+      Paint()..color = Colors.redAccent,
+      Paint()..color = Colors.blueAccent,
+      Paint()..color = Colors.greenAccent,
+      Paint()..color = Colors.amberAccent,
+    ];
+    canvas.drawRRect(RRect.fromRectAndRadius(Rect.fromLTWH(w * 0.15, w * 0.15, w * 0.3, w * 0.3), const Radius.circular(8)), paints[0]);
+    canvas.drawRRect(RRect.fromRectAndRadius(Rect.fromLTWH(w * 0.55, w * 0.15, w * 0.3, w * 0.3), const Radius.circular(8)), paints[1]);
+    canvas.drawRRect(RRect.fromRectAndRadius(Rect.fromLTWH(w * 0.15, w * 0.55, w * 0.3, w * 0.3), const Radius.circular(8)), paints[2]);
+    canvas.drawRRect(RRect.fromRectAndRadius(Rect.fromLTWH(w * 0.55, w * 0.55, w * 0.3, w * 0.3), const Radius.circular(8)), paints[3]);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
+}
+
+class WhackAMoleLogoPainter extends CustomPainter {
+  final Color color;
+  WhackAMoleLogoPainter(this.color);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final mound = Paint()..color = Colors.brown.shade700..style = PaintingStyle.fill;
+    final mole = Paint()..color = Colors.brown.shade400..style = PaintingStyle.fill;
+    final eyes = Paint()..color = Colors.black..style = PaintingStyle.fill;
+
+    // Mole body
+    canvas.drawRRect(RRect.fromRectAndRadius(Rect.fromLTWH(w * 0.3, w * 0.25, w * 0.4, w * 0.5), const Radius.circular(16)), mole);
+    // Eyes
+    canvas.drawCircle(Offset(w * 0.4, w * 0.4), w * 0.04, eyes);
+    canvas.drawCircle(Offset(w * 0.6, w * 0.4), w * 0.04, eyes);
+    // Nose
+    canvas.drawCircle(Offset(w * 0.5, w * 0.5), w * 0.05, Paint()..color = Colors.pinkAccent);
+    // Mound / Hole
+    canvas.drawOval(Rect.fromLTWH(w * 0.15, w * 0.65, w * 0.7, w * 0.25), mound);
   }
 
   @override
