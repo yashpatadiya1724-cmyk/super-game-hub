@@ -39,7 +39,7 @@ export 'solitaire_game.dart';
 export 'space_shooter.dart';
 export 'spin_the_wheel_game.dart';
 export 'sudoku_game.dart';
-export 'tank_wars_game.dart';
+export 'tank_wars_game.dart' hide Projectile;
 export 'tap_the_color_game.dart';
 export 'thumb_fighter_game.dart';
 export 'tictactoe_game.dart';

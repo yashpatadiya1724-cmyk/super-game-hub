@@ -17,6 +17,23 @@ class AudioFeedbackService {
     _hapticsEnabled = !_hapticsEnabled;
   }
 
+  /// Click / tap sound
+  static void playClick() {
+    playTap();
+  }
+
+  /// System vibration with optional duration hint
+  static void vibrate([int durationMs = 30]) {
+    if (!_hapticsEnabled) return;
+    if (durationMs > 60) {
+      HapticFeedback.heavyImpact();
+    } else if (durationMs > 25) {
+      HapticFeedback.mediumImpact();
+    } else {
+      HapticFeedback.lightImpact();
+    }
+  }
+
   /// Lightweight tap sound & light vibration for buttons / tile clicks
   static void playTap() {
     if (_soundEnabled) {
