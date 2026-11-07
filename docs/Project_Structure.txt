@@ -1,0 +1,48 @@
+Super_Game_Hub/
+├── android/
+│   ├── app/
+│   │   ├── build.gradle
+│   │   └── src/main/AndroidManifest.xml
+│   └── build.gradle
+├── assets/
+│   ├── app_icon.png
+│   └── logos/
+│       ├── game_2048_logo_1774899942173.png
+│       ├── memorymatch_logo_1774900106964.png
+│       ├── minesweeper_logo_1774900091532.png
+│       ├── snake_logo_1774899899333.png
+│       ├── sudoku_logo_1774899961455.png
+│       └── tictactoe_logo_1774899883582.png
+├── docs/
+│   ├── Android_Export.md
+│   ├── Testing_and_Debugging.md
+│   └── Project_Structure.txt
+├── lib/
+│   ├── games/
+│   │   ├── smart_ai_game.dart
+│   │   ├── tower_defender_game.dart
+│   │   └── ... (50+ games)
+│   ├── models/
+│   │   └── game_model.dart
+│   ├── registry/
+│   │   └── game_registry.dart
+│   ├── screens/
+│   │   ├── home_screen.dart
+│   │   ├── game_wrapper.dart
+│   │   ├── analytics_dashboard_screen.dart
+│   │   ├── monetization_store_screen.dart
+│   │   ├── testing_bug_report_screen.dart
+│   │   └── deployment_showcase_screen.dart
+│   ├── services/
+│   │   └── storage_service.dart
+│   ├── theme/
+│   │   └── app_theme.dart
+│   └── main.dart
+├── test/
+│   └── widget_test.dart
+├── web/
+│   ├── index.html
+│   └── manifest.json
+├── pubspec.yaml
+├── README.md
+└── Super_Game_Hub_v3.apk
