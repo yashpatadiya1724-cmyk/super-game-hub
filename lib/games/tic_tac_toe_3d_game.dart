@@ -63,7 +63,9 @@ class _TicTacToe3DGameState extends State<TicTacToe3DGame> {
         int nc = c + dir[2] * i;
         if (nl >= 0 && nl < 3 && nr >= 0 && nr < 3 && nc >= 0 && nc < 3 && board[nl][nr][nc] == p) {
           count++;
-        } else break;
+        } else {
+          break;
+        }
       }
       // Check negative direction
       for (int i = 1; i < 3; i++) {
@@ -72,7 +74,9 @@ class _TicTacToe3DGameState extends State<TicTacToe3DGame> {
         int nc = c - dir[2] * i;
         if (nl >= 0 && nl < 3 && nr >= 0 && nr < 3 && nc >= 0 && nc < 3 && board[nl][nr][nc] == p) {
           count++;
-        } else break;
+        } else {
+          break;
+        }
       }
       if (count >= 3) return true;
     }
@@ -115,7 +119,7 @@ class _TicTacToe3DGameState extends State<TicTacToe3DGame> {
                           return GestureDetector(
                             onTap: () => _onTap(layer, r, c),
                             child: Container(
-                              color: Colors.blueAccent.withOpacity(0.1),
+                              color: Colors.blueAccent.withValues(alpha: 0.1),
                               child: Center(child: _buildPiece(board[layer][r][c])),
                             ),
                           );

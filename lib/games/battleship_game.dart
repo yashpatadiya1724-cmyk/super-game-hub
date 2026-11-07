@@ -34,7 +34,9 @@ class _BattleshipState extends State<BattleshipGame> {
           if (board[horiz ? r : r + i][horiz ? c + i : c] != 0) { ok = false; break; }
         }
         if (ok) {
-          for (int i = 0; i < size; i++) board[horiz ? r : r + i][horiz ? c + i : c] = 1;
+          for (int i = 0; i < size; i++) {
+            board[horiz ? r : r + i][horiz ? c + i : c] = 1;
+          }
           placed = true;
         }
       }
@@ -55,7 +57,9 @@ class _BattleshipState extends State<BattleshipGame> {
     }
     if (!ok) { setState(() => message = 'Cannot place here! Try again.'); return; }
     setState(() {
-      for (final p in positions) board[p[0]][p[1]] = 1;
+      for (final p in positions) {
+        board[p[0]][p[1]] = 1;
+      }
       shipIdx++;
       if (shipIdx >= shipSizes.length) {
         if (phase == 0) { phase = 1; shipIdx = 0; message = 'Player 2: Place your ships!'; }

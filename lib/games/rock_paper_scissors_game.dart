@@ -18,8 +18,11 @@ class _RPSState extends State<RockPaperScissorsGame> {
 
   void _select(int player, String choice) {
     setState(() {
-      if (player == 1) p1Choice = choice;
-      else p2Choice = choice;
+      if (player == 1) {
+        p1Choice = choice;
+      } else {
+        p2Choice = choice;
+      }
       if (p1Choice.isNotEmpty && p2Choice.isNotEmpty) _resolve();
     });
   }

@@ -117,8 +117,8 @@ class _ChessGameState extends State<ChessGame> {
                       onTap: () => _onSquareTapped(row, col),
                       child: Container(
                         color: isSelected 
-                          ? Colors.yellow.withOpacity(0.4) 
-                          : (isDark ? Colors.blue.shade900.withOpacity(0.3) : Colors.white10),
+                          ? Colors.yellow.withValues(alpha: 0.4) 
+                          : (isDark ? Colors.blue.shade900.withValues(alpha: 0.3) : Colors.white10),
                         child: Center(
                           child: _buildPiece(board[row][col]),
                         ),

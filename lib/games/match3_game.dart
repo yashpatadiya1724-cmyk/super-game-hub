@@ -63,12 +63,16 @@ class _Match3State extends State<Match3Game> {
   void _clearMatches(List<List<int>> matched) {
     final pts = matched.toSet();
     score += pts.length * 10;
-    for (final p in pts) grid[p[0]][p[1]] = -1;
+    for (final p in pts) {
+      grid[p[0]][p[1]] = -1;
+    }
     // Drop down
     for (int c = 0; c < cols; c++) {
       int write = rows - 1;
       for (int r = rows - 1; r >= 0; r--) { if (grid[r][c] != -1) { grid[write][c] = grid[r][c]; write--; } }
-      for (int r = write; r >= 0; r--) grid[r][c] = rng.nextInt(5);
+      for (int r = write; r >= 0; r--) {
+        grid[r][c] = rng.nextInt(5);
+      }
     }
   }
 

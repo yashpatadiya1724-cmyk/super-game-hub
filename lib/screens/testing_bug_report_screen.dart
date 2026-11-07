@@ -93,14 +93,14 @@ class TestingBugReportScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: AppTheme.surface,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: Colors.redAccent.withOpacity(0.5)),
+                border: Border.all(color: Colors.redAccent.withValues(alpha: 0.5)),
               ),
               child: Row(
                 children: [
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: Colors.redAccent.withOpacity(0.2),
+                      color: Colors.redAccent.withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Icon(Icons.bug_report, color: Colors.redAccent, size: 32),
@@ -149,7 +149,7 @@ class TestingBugReportScreen extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                           decoration: BoxDecoration(
-                            color: Colors.blueAccent.withOpacity(0.2),
+                            color: Colors.blueAccent.withValues(alpha: 0.2),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Text("BUG #${bug.id}: ${bug.category}",
@@ -159,7 +159,7 @@ class TestingBugReportScreen extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                           decoration: BoxDecoration(
-                            color: Colors.greenAccent.withOpacity(0.2),
+                            color: Colors.greenAccent.withValues(alpha: 0.2),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Text(bug.status,

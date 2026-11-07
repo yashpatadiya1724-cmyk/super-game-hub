@@ -23,9 +23,13 @@ class _TugOfWarState extends State<TugOfWarGame> {
         t.cancel();
         setState(() {
           isPlaying = false;
-          if (ropePos > 0.2) message = '🔴 Player 1 WINS!';
-          else if (ropePos < -0.2) message = '🔵 Player 2 WINS!';
-          else message = "It's a Draw! 🤝";
+          if (ropePos > 0.2) {
+            message = '🔴 Player 1 WINS!';
+          } else if (ropePos < -0.2) {
+            message = '🔵 Player 2 WINS!';
+          } else {
+            message = "It's a Draw! 🤝";
+          }
         });
       } else {
         setState(() => timeLeft--);

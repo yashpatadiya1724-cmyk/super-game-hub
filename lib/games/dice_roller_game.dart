@@ -21,9 +21,13 @@ class _DiceState extends State<DiceRollerGame> {
       p1Dice = rng.nextInt(6) + 1;
       p2Dice = rng.nextInt(6) + 1;
       rolled = true;
-      if (p1Dice > p2Dice) p1Wins++;
-      else if (p2Dice > p1Dice) p2Wins++;
-      else draws++;
+      if (p1Dice > p2Dice) {
+        p1Wins++;
+      } else if (p2Dice > p1Dice) {
+        p2Wins++;
+      } else {
+        draws++;
+      }
     });
   }
 

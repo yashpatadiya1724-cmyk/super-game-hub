@@ -136,7 +136,9 @@ class _SlashPainter extends CustomPainter {
     final paint = Paint()..color = Colors.white.withValues(alpha: 0.8)..strokeWidth = 3..style = PaintingStyle.stroke..strokeCap = StrokeCap.round;
     final path = Path();
     path.moveTo(trail.first.dx * size.width, trail.first.dy * size.height);
-    for (int i = 1; i < trail.length; i++) path.lineTo(trail[i].dx * size.width, trail[i].dy * size.height);
+    for (int i = 1; i < trail.length; i++) {
+      path.lineTo(trail[i].dx * size.width, trail[i].dy * size.height);
+    }
     canvas.drawPath(path, paint);
   }
   @override

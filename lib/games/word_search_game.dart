@@ -109,7 +109,7 @@ class _WordSearchGameState extends State<WordSearchGame> {
                            int col = index % gridSize;
                            bool isSelected = selectedOffsets.any((o) => o.dx == row && o.dy == col);
                            return Container(
-                             color: isSelected ? Colors.yellowAccent.withOpacity(0.3) : Colors.transparent,
+                             color: isSelected ? Colors.yellowAccent.withValues(alpha: 0.3) : Colors.transparent,
                              child: Center(
                                child: Text(grid[row][col], style: GoogleFonts.outfit(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
                              ),

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../screens/game_wrapper.dart';
@@ -181,8 +180,6 @@ class _PinballPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = Colors.blueAccent..style = PaintingStyle.fill;
-    
     // Bumpers
     for (var bumper in bumpers) {
       canvas.drawCircle(bumper, 25, Paint()..color = Colors.pinkAccent);
@@ -192,7 +189,6 @@ class _PinballPainter extends CustomPainter {
     // Flippers
     final flipperPaint = Paint()..color = Colors.redAccent..strokeWidth = 10..strokeCap = StrokeCap.round;
     double flipperY = size.height * 0.85;
-    double angle = 0.3; // Angle in radians
     
     // Left Flipper
     canvas.drawLine(

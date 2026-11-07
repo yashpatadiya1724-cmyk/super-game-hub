@@ -207,14 +207,14 @@ class _MonetizationStoreScreenState extends State<MonetizationStoreScreen> {
                 decoration: BoxDecoration(
                   color: AppTheme.surface,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: item.color.withOpacity(0.4)),
+                  border: Border.all(color: item.color.withValues(alpha: 0.4)),
                 ),
                 child: Row(
                   children: [
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: item.color.withOpacity(0.15),
+                        color: item.color.withValues(alpha: 0.15),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Icon(item.icon, color: item.color, size: 28),
@@ -254,7 +254,7 @@ class _MonetizationStoreScreenState extends State<MonetizationStoreScreen> {
               decoration: BoxDecoration(
                 color: Colors.black54,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: Colors.cyanAccent.withOpacity(0.5)),
+                border: Border.all(color: Colors.cyanAccent.withValues(alpha: 0.5)),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

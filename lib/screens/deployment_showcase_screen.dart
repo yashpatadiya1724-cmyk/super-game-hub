@@ -136,7 +136,7 @@ class DeploymentShowcaseScreen extends StatelessWidget {
                         colors: [Colors.indigo.shade900, Colors.purple.shade900, Colors.pink.shade900],
                       ),
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.cyanAccent.withOpacity(0.5)),
+                      border: Border.all(color: Colors.cyanAccent.withValues(alpha: 0.5)),
                     ),
                     child: Center(
                       child: Column(

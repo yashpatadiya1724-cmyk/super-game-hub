@@ -102,7 +102,7 @@ class _SolitaireGameState extends State<SolitaireGame> {
                 ),
                 if (discardStack.isNotEmpty) _buildCard(discardStack.last),
                 const SizedBox(width: 40), // Space for foundation (simplified)
-                Icon(Icons.auto_awesome, color: Colors.yellowAccent.withOpacity(0.3), size: 50),
+                Icon(Icons.auto_awesome, color: Colors.yellowAccent.withValues(alpha: 0.3), size: 50),
               ],
             ),
           ),

@@ -35,8 +35,11 @@ class _NumberGuesserState extends State<NumberGuesserGame> {
       if (g == secretNumber) {
         won = true;
         hint = '🎉 Correct in $guessCount guess${guessCount == 1 ? "" : "es"}!';
-        if (guessCount <= 5) p2Wins++;
-        else p1Wins++;
+        if (guessCount <= 5) {
+          p2Wins++;
+        } else {
+          p1Wins++;
+        }
       } else if (g < secretNumber) {
         hint = '📈 Too LOW! Try higher.';
       } else {

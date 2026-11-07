@@ -114,12 +114,12 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                 decoration: BoxDecoration(
                   color: AppTheme.surface,
                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: game.themeColor.withOpacity(0.4)),
+                  border: Border.all(color: game.themeColor.withValues(alpha: 0.4)),
                 ),
                 child: Row(
                   children: [
                     CircleAvatar(
-                      backgroundColor: game.themeColor.withOpacity(0.2),
+                      backgroundColor: game.themeColor.withValues(alpha: 0.2),
                       child: Icon(game.icon, color: game.themeColor),
                     ),
                     const SizedBox(width: 16),
@@ -192,7 +192,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
       decoration: BoxDecoration(
         color: AppTheme.surface,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: color.withOpacity(0.5), width: 1.5),
+        border: Border.all(color: color.withValues(alpha: 0.5), width: 1.5),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -26,7 +26,9 @@ class _TapColorState extends State<TapTheColorGame> {
     setState(() { score = 0; timeLeft = 30; isPlaying = true; feedback = ''; _nextRound(); });
     timer = Timer.periodic(const Duration(seconds: 1), (t) {
       if (timeLeft <= 1) { t.cancel(); setState(() { isPlaying = false; StorageService.saveHighScore('tap_color', score); }); }
-      else setState(() => timeLeft--);
+      else {
+        setState(() => timeLeft--);
+      }
     });
   }
 

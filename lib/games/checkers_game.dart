@@ -61,7 +61,11 @@ class _CheckersState extends State<CheckersGame> {
           board[selRow!][selCol!] = 0;
           if (move[0][2] == 1) { // capture
             board[(selRow! + r) ~/ 2][(selCol! + c) ~/ 2] = 0;
-            if (currentPlayer == 1) blackPieces--; else redPieces--;
+            if (currentPlayer == 1) {
+              blackPieces--;
+            } else {
+              redPieces--;
+            }
           }
           // King promotion
           if (r == 0 && board[r][c] == 1) board[r][c] = 2;

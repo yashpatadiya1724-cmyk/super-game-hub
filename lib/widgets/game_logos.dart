@@ -21,10 +21,10 @@ class GameLogo extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.black45,
         borderRadius: BorderRadius.circular(size * 0.2),
-        border: Border.all(color: themeColor.withOpacity(0.5), width: 2),
+        border: Border.all(color: themeColor.withValues(alpha: 0.5), width: 2),
         boxShadow: [
           BoxShadow(
-            color: themeColor.withOpacity(0.3),
+            color: themeColor.withValues(alpha: 0.3),
             blurRadius: 10,
             spreadRadius: 2,
           ),
@@ -104,7 +104,7 @@ class GameLogo extends StatelessWidget {
       case 'tap_color':
         return TapColorLogoPainter(color);
       default:
-        return GenericLogoPainter(color, id.length > 0 ? id[0].toUpperCase() : 'G');
+        return GenericLogoPainter(color, id.isNotEmpty ? id[0].toUpperCase() : 'G');
     }
   }
 }
@@ -141,7 +141,7 @@ class ChessLogoPainter extends CustomPainter {
     for(int i=0; i<4; i++) {
       for(int j=0; j<4; j++) {
         if((i+j)%2 == 0) {
-          canvas.drawRect(Rect.fromLTWH(w*0.1 + i*w*0.2, w*0.1 + j*w*0.2, w*0.2, w*0.2), Paint()..color = color.withOpacity(0.5));
+          canvas.drawRect(Rect.fromLTWH(w*0.1 + i*w*0.2, w*0.1 + j*w*0.2, w*0.2, w*0.2), Paint()..color = color.withValues(alpha: 0.5));
         }
       }
     }
@@ -181,7 +181,7 @@ class SolitaireLogoPainter extends CustomPainter {
     // Stacked cards
     for(int i=0; i<3; i++) {
       canvas.drawRRect(RRect.fromLTRBR(w*0.15 + i*w*0.15, w*0.2 + i*w*0.1, w*0.5 + i*w*0.15, w*0.7 + i*w*0.1, const Radius.circular(4)), Paint()..color = Colors.white);
-      canvas.drawRRect(RRect.fromLTRBR(w*0.15 + i*w*0.15, w*0.2 + i*w*0.1, w*0.5 + i*w*0.15, w*0.7 + i*w*0.1, const Radius.circular(4)), Paint()..color = color.withOpacity(0.3)..style = PaintingStyle.stroke);
+      canvas.drawRRect(RRect.fromLTRBR(w*0.15 + i*w*0.15, w*0.2 + i*w*0.1, w*0.5 + i*w*0.15, w*0.7 + i*w*0.1, const Radius.circular(4)), Paint()..color = color.withValues(alpha: 0.3)..style = PaintingStyle.stroke);
     }
     // Ace of Spades symbol on top card
     final p = Paint()..color = Colors.red;
@@ -207,7 +207,7 @@ class WordSearchLogoPainter extends CustomPainter {
       }
     }
     // Highlighting a word
-    final p = Paint()..color = color.withOpacity(0.4)..strokeCap = StrokeCap.round..strokeWidth = w*0.15;
+    final p = Paint()..color = color.withValues(alpha: 0.4)..strokeCap = StrokeCap.round..strokeWidth = w*0.15;
     canvas.drawLine(Offset(w*0.25, w*0.25), Offset(w*0.75, w*0.75), p);
   }
   @override bool shouldRepaint(CustomPainter oldDelegate) => false;
@@ -400,7 +400,7 @@ class BattleshipLogoPainter extends CustomPainter {
     // Radar
     canvas.drawLine(Offset(w*0.5, w*0.4), Offset(w*0.5, w*0.2), Paint()..color = Colors.white);
     // Water
-    final wp = Paint()..color = Colors.blue.withOpacity(0.3);
+    final wp = Paint()..color = Colors.blue.withValues(alpha: 0.3);
     canvas.drawRect(Rect.fromLTWH(0, w*0.7, w, w*0.3), wp);
   }
   @override bool shouldRepaint(CustomPainter oldDelegate) => false;
@@ -421,7 +421,7 @@ class TruthOrDareLogoPainter extends CustomPainter {
     canvas.drawCircle(Offset(0, -w*0.35), w*0.05, Paint()..color = Colors.white70);
     canvas.restore();
     // Question marks
-    final tp = TextPainter(text: TextSpan(text: "?", style: TextStyle(color: color.withOpacity(0.5), fontSize: w*0.3)), textDirection: TextDirection.ltr);
+    final tp = TextPainter(text: TextSpan(text: "?", style: TextStyle(color: color.withValues(alpha: 0.5), fontSize: w*0.3)), textDirection: TextDirection.ltr);
     tp.layout();
     tp.paint(canvas, Offset(w*0.1, w*0.1));
   }
@@ -460,7 +460,7 @@ class NumberGuesserLogoPainter extends CustomPainter {
     tp.layout();
     tp.paint(canvas, Offset(w*0.3, w*0.2));
     
-    final tp2 = TextPainter(text: TextSpan(text: "42", style: TextStyle(color: color.withOpacity(0.3), fontSize: w*0.2)), textDirection: TextDirection.ltr);
+    final tp2 = TextPainter(text: TextSpan(text: "42", style: TextStyle(color: color.withValues(alpha: 0.3), fontSize: w*0.2)), textDirection: TextDirection.ltr);
     tp2.layout();
     tp2.paint(canvas, Offset(w*0.1, w*0.6));
   }
@@ -475,8 +475,8 @@ class FingerBattleLogoPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final w = size.width;
     // Red vs Blue sides
-    canvas.drawRect(Rect.fromLTWH(0, 0, w, w*0.5), Paint()..color = Colors.red.withOpacity(0.5));
-    canvas.drawRect(Rect.fromLTWH(0, w*0.5, w, w*0.5), Paint()..color = Colors.blue.withOpacity(0.5));
+    canvas.drawRect(Rect.fromLTWH(0, 0, w, w*0.5), Paint()..color = Colors.red.withValues(alpha: 0.5));
+    canvas.drawRect(Rect.fromLTWH(0, w*0.5, w, w*0.5), Paint()..color = Colors.blue.withValues(alpha: 0.5));
     // Tap icons
     canvas.drawCircle(Offset(w*0.5, w*0.25), w*0.1, Paint()..color = Colors.white54);
     canvas.drawCircle(Offset(w*0.5, w*0.75), w*0.1, Paint()..color = Colors.white54);
@@ -622,7 +622,7 @@ class BrickBreakerLogoPainter extends CustomPainter {
        for(int j=0; j<3; j++) {
          canvas.drawRect(
            Rect.fromLTWH(w*0.1 + i*w*0.28, w*0.1 + j*w*0.12, w*0.24, w*0.08), 
-           Paint()..color = color.withOpacity(1.0 - (j*0.2))
+           Paint()..color = color.withValues(alpha: 1.0 - (j*0.2))
          );
        }
     }
@@ -643,7 +643,7 @@ class Game2048LogoPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final w = size.width;
-    canvas.drawRect(Rect.fromLTWH(w*0.1, w*0.1, w*0.8, w*0.8), Paint()..color = color.withOpacity(0.3));
+    canvas.drawRect(Rect.fromLTWH(w*0.1, w*0.1, w*0.8, w*0.8), Paint()..color = color.withValues(alpha: 0.3));
     
     final textStyle = TextStyle(color: color, fontSize: w*0.3, fontWeight: FontWeight.bold);
     final textPainter = TextPainter(
@@ -781,7 +781,7 @@ class DotsAndBoxesLogoPainter extends CustomPainter {
     canvas.drawLine(Offset(w*0.2, w*0.2), Offset(w*0.5, w*0.2), lp);
     canvas.drawLine(Offset(w*0.2, w*0.2), Offset(w*0.2, w*0.5), lp);
     // Filled box
-    canvas.drawRect(Rect.fromLTWH(w*0.52, w*0.52, w*0.26, w*0.26), Paint()..color = color.withOpacity(0.3));
+    canvas.drawRect(Rect.fromLTWH(w*0.52, w*0.52, w*0.26, w*0.26), Paint()..color = color.withValues(alpha: 0.3));
   }
 
   @override
@@ -819,7 +819,7 @@ class GenericLogoPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final w = size.width;
     // Block background
-    canvas.drawRect(Rect.fromLTWH(w*0.2, w*0.2, w*0.6, w*0.6), Paint()..color = color.withOpacity(0.2));
+    canvas.drawRect(Rect.fromLTWH(w*0.2, w*0.2, w*0.6, w*0.6), Paint()..color = color.withValues(alpha: 0.2));
     
     final tp = TextPainter(
       text: TextSpan(text: letter, style: TextStyle(color: color, fontSize: w*0.5, fontWeight: FontWeight.w900)),

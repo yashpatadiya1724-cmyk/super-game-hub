@@ -38,8 +38,11 @@ class _SpinState extends State<SpinTheWheelGame> with SingleTickerProviderStateM
       setState(() {
         spinning = false;
         result = segments[idx];
-        if (result.contains('P1')) p1Wins++;
-        else if (result.contains('P2')) p2Wins++;
+        if (result.contains('P1')) {
+          p1Wins++;
+        } else if (result.contains('P2')) {
+          p2Wins++;
+        }
       });
     });
   }

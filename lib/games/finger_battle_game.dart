@@ -29,9 +29,9 @@ class _FingerBattleState extends State<FingerBattleGame> {
   }
 
   String get result {
-    if (p1Taps > p2Taps) return '🔴 Player 1 WINS!\n${p1Taps} vs ${p2Taps} taps';
-    if (p2Taps > p1Taps) return '🔵 Player 2 WINS!\n${p2Taps} vs ${p1Taps} taps';
-    return '🤝 DRAW!\nBoth tapped ${p1Taps} times';
+    if (p1Taps > p2Taps) return '🔴 Player 1 WINS!\n$p1Taps vs $p2Taps taps';
+    if (p2Taps > p1Taps) return '🔵 Player 2 WINS!\n$p2Taps vs $p1Taps taps';
+    return '🤝 DRAW!\nBoth tapped $p1Taps times';
   }
 
   @override

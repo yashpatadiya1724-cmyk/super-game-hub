@@ -381,7 +381,7 @@ class _SmartAIGameState extends State<SmartAIGame> {
                           color: isObs
                               ? Colors.purple.shade900
                               : isPathNode
-                                  ? _getStateColor().withOpacity(0.25)
+                                  ? _getStateColor().withValues(alpha: 0.25)
                                   : Colors.transparent,
                           border: Border.all(color: Colors.white10, width: 0.5),
                         ),

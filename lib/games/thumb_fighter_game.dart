@@ -77,7 +77,7 @@ class _ThumbFighterGameState extends State<ThumbFighterGame> {
                   GestureDetector(
                     onTapDown: (_) => _p2Attack(),
                     child: Container(
-                      color: Colors.blueAccent.withOpacity(0.1),
+                      color: Colors.blueAccent.withValues(alpha: 0.1),
                       child: Center(
                         child: AnimatedContainer(
                           duration: const Duration(milliseconds: 100),
@@ -118,7 +118,7 @@ class _ThumbFighterGameState extends State<ThumbFighterGame> {
                 GestureDetector(
                   onTapDown: (_) => _p1Attack(),
                   child: Container(
-                    color: Colors.redAccent.withOpacity(0.1),
+                    color: Colors.redAccent.withValues(alpha: 0.1),
                     child: Center(
                       child: AnimatedContainer(
                         duration: const Duration(milliseconds: 100),
@@ -154,7 +154,7 @@ class _ThumbFighterGameState extends State<ThumbFighterGame> {
           decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.circular(10),
-            boxShadow: [BoxShadow(color: color.withOpacity(0.5), blurRadius: 10)],
+            boxShadow: [BoxShadow(color: color.withValues(alpha: 0.5), blurRadius: 10)],
           ),
         ),
       ),

@@ -129,10 +129,10 @@ class _TowerDefenderGameState extends State<TowerDefenderGame> {
                         child: Container(
                           width: 80, height: 60,
                           decoration: BoxDecoration(
-                             color: Colors.blueAccent.withOpacity(0.5),
+                             color: Colors.blueAccent.withValues(alpha: 0.5),
                              border: Border.all(color: Colors.blueAccent, width: 2),
                              borderRadius: const BorderRadius.vertical(top: Radius.circular(10)),
-                             boxShadow: [BoxShadow(color: Colors.blueAccent.withOpacity(0.3), blurRadius: 15)],
+                             boxShadow: [BoxShadow(color: Colors.blueAccent.withValues(alpha: 0.3), blurRadius: 15)],
                           ),
                           child: const Icon(Icons.security, color: Colors.white, size: 40),
                         ),
@@ -147,9 +147,9 @@ class _TowerDefenderGameState extends State<TowerDefenderGame> {
                              child: Container(
                                width: 40, height: 40,
                                decoration: BoxDecoration(
-                                 color: Colors.red.withOpacity(0.8),
+                                 color: Colors.red.withValues(alpha: 0.8),
                                  shape: BoxShape.circle,
-                                 boxShadow: [BoxShadow(color: Colors.redAccent.withOpacity(0.5), blurRadius: 10)],
+                                 boxShadow: [BoxShadow(color: Colors.redAccent.withValues(alpha: 0.5), blurRadius: 10)],
                                ),
                                child: const Icon(Icons.psychology, size: 24, color: Colors.white),
                              ),

@@ -52,7 +52,7 @@ class _RacingBlocksGameState extends State<RacingBlocksGame> {
               child: GestureDetector(
                 onTapDown: (_) => _tap2(),
                 child: Container(
-                  color: Colors.blueAccent.withOpacity(0.1),
+                  color: Colors.blueAccent.withValues(alpha: 0.1),
                   child: Stack(
                     children: [
                       _buildTrack(pos2, Colors.blueAccent),
@@ -69,7 +69,7 @@ class _RacingBlocksGameState extends State<RacingBlocksGame> {
           
           Container(
             height: 4,
-            color: Colors.yellowAccent.withOpacity(0.5),
+            color: Colors.yellowAccent.withValues(alpha: 0.5),
           ),
 
           // Player 1 Area (Bottom) - Tap to race
@@ -77,7 +77,7 @@ class _RacingBlocksGameState extends State<RacingBlocksGame> {
             child: GestureDetector(
               onTapDown: (_) => _tap1(),
               child: Container(
-                color: Colors.redAccent.withOpacity(0.1),
+                color: Colors.redAccent.withValues(alpha: 0.1),
                 child: Stack(
                   children: [
                     _buildTrack(pos1, Colors.redAccent),
@@ -130,7 +130,7 @@ class _RacingBlocksGameState extends State<RacingBlocksGame> {
                  decoration: BoxDecoration(
                    color: color,
                    borderRadius: BorderRadius.circular(5),
-                   boxShadow: [BoxShadow(color: color.withOpacity(0.5), blurRadius: 10)],
+                   boxShadow: [BoxShadow(color: color.withValues(alpha: 0.5), blurRadius: 10)],
                  ),
                  child: const Icon(Icons.flash_on, color: Colors.white),
                ),

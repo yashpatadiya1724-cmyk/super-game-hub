@@ -83,8 +83,11 @@ class _PongState extends State<PongGame> {
           onVerticalDragUpdate: (d) {
             final rel = d.localPosition.dy / gH;
             setState(() {
-              if (d.localPosition.dx < gW / 2) p1Y = rel.clamp(0.1, 0.9);
-              else p2Y = rel.clamp(0.1, 0.9);
+              if (d.localPosition.dx < gW / 2) {
+                p1Y = rel.clamp(0.1, 0.9);
+              } else {
+                p2Y = rel.clamp(0.1, 0.9);
+              }
             });
           },
           child: Container(

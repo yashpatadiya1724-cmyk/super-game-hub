@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../screens/game_wrapper.dart';
@@ -28,7 +27,9 @@ class _GoFishGameState extends State<GoFishGame> {
   void _resetGame() {
     deck = [];
     for (int i = 1; i <= 13; i++) {
-      for (int j = 0; j < 4; j++) deck.add(i);
+      for (int j = 0; j < 4; j++) {
+        deck.add(i);
+      }
     }
     deck.shuffle();
 
@@ -92,12 +93,18 @@ class _GoFishGameState extends State<GoFishGame> {
 
   void _checkBooks(List<int> hand, bool isP1) {
     Map<int, int> counts = {};
-    for (var r in hand) counts[r] = (counts[r] ?? 0) + 1;
+    for (var r in hand) {
+      counts[r] = (counts[r] ?? 0) + 1;
+    }
     for (var rank in counts.keys) {
       if (counts[rank] == 4) {
         hand.removeWhere((c) => c == rank);
-        if (isP1) score1++; else score2++;
-        log = (isP1 ? "P1" : "P2") + " COMPLETED A BOOK OF $rank!";
+        if (isP1) {
+          score1++;
+        } else {
+          score2++;
+        }
+        log = "${isP1 ? "P1" : "P2"} COMPLETED A BOOK OF $rank!";
       }
     }
   }

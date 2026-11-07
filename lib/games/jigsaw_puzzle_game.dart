@@ -115,9 +115,9 @@ class _JigsawPuzzleGameState extends State<JigsawPuzzleGame> {
                       onTap: () => _onTileTap(index),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.blueAccent.withOpacity(0.3),
+                          color: Colors.blueAccent.withValues(alpha: 0.3),
                           borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.blueAccent.withOpacity(0.5)),
+                          border: Border.all(color: Colors.blueAccent.withValues(alpha: 0.5)),
                         ),
                         child: Center(
                           child: Text(tiles[index].toString(), style: GoogleFonts.outfit(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold)),
