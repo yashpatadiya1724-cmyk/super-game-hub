@@ -10,6 +10,7 @@ import 'analytics_dashboard_screen.dart';
 import 'monetization_store_screen.dart';
 import 'testing_bug_report_screen.dart';
 import 'deployment_showcase_screen.dart';
+import 'packages_showcase_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -61,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           CustomScrollView(
             slivers: [
               _buildAppBar(),
-              _buildAssignmentBar(),
+              _buildEngineSuiteBar(),
               _buildModeSelector(),
               _buildFeaturedCarousel(),
               _buildSearchAndFilters(),
@@ -128,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildAssignmentBar() {
+  Widget _buildEngineSuiteBar() {
     return SliverToBoxAdapter(
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
@@ -141,15 +142,32 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("ASSIGNMENT-2 QUICK DASHBOARD",
-                style: GoogleFonts.outfit(color: Colors.cyanAccent, fontSize: 11, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "⚡ CORE ENGINE & REUSABLE PACKAGES",
+                  style: GoogleFonts.outfit(color: Colors.cyanAccent, fontSize: 11, fontWeight: FontWeight.bold, letterSpacing: 1.2),
+                ),
+                Text(
+                  "CMYK DEV SUITE",
+                  style: GoogleFonts.outfit(color: Colors.white38, fontSize: 10, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
                   _buildAssignmentChip(
-                    "🤖 Smart AI FSM",
+                    "📦 Reusable Packages",
+                    Colors.purpleAccent,
+                    () => Navigator.push(context, MaterialPageRoute(builder: (_) => const PackagesShowcaseScreen())),
+                  ),
+                  const SizedBox(width: 8),
+                  _buildAssignmentChip(
+                    "🤖 Smart AI & A*",
                     Colors.orangeAccent,
                     () {
                       final aiGame = allGames.firstWhere((g) => g.id == 'smart_ai');
@@ -158,25 +176,25 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   ),
                   const SizedBox(width: 8),
                   _buildAssignmentChip(
-                    "📊 Analytics",
+                    "📊 Real-Time Analytics",
                     Colors.cyanAccent,
                     () => Navigator.push(context, MaterialPageRoute(builder: (_) => const AnalyticsDashboardScreen())),
                   ),
                   const SizedBox(width: 8),
                   _buildAssignmentChip(
-                    "💎 Store & Monetization",
+                    "💎 Store & Economy",
                     Colors.amberAccent,
                     () => Navigator.push(context, MaterialPageRoute(builder: (_) => const MonetizationStoreScreen())),
                   ),
                   const SizedBox(width: 8),
                   _buildAssignmentChip(
-                    "🐛 Bug Report (5)",
+                    "🛠️ QA & Bug Diagnostics",
                     Colors.redAccent,
                     () => Navigator.push(context, MaterialPageRoute(builder: (_) => const TestingBugReportScreen())),
                   ),
                   const SizedBox(width: 8),
                   _buildAssignmentChip(
-                    "🚀 APK & Play Store",
+                    "🚀 Multi-Platform Release",
                     Colors.greenAccent,
                     () => Navigator.push(context, MaterialPageRoute(builder: (_) => const DeploymentShowcaseScreen())),
                   ),

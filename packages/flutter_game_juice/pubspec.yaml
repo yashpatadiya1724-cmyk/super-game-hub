@@ -1,0 +1,17 @@
+name: flutter_game_juice
+description: A lightweight, zero-dependency game feel & juice toolkit for Flutter games. Includes trauma-based screen shake, particle bursts, floating damage text, and hit-stop effects.
+version: 1.0.0
+homepage: https://github.com/yashpatadiya1724-cmyk/super-game-hub
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
