@@ -1,4 +1,29 @@
+import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
+
+class LeaderboardEntry {
+  final String playerName;
+  final int score;
+  final String date;
+
+  LeaderboardEntry({
+    required this.playerName,
+    required this.score,
+    required this.date,
+  });
+
+  Map<String, dynamic> toJson() => {
+    'playerName': playerName,
+    'score': score,
+    'date': date,
+  };
+
+  factory LeaderboardEntry.fromJson(Map<String, dynamic> json) => LeaderboardEntry(
+    playerName: json['playerName'] as String? ?? 'Player',
+    score: json['score'] as int? ?? 0,
+    date: json['date'] as String? ?? '',
+  );
+}
 
 class StorageService {
   static late SharedPreferences _prefs;
@@ -9,15 +34,48 @@ class StorageService {
     await incrementSessionCount();
   }
 
-  static Future<void> saveHighScore(String gameId, int score) async {
+  static Future<void> saveHighScore(String gameId, int score, {String playerName = 'Player 1'}) async {
     int currentHighScore = getHighScore(gameId);
     if (score > currentHighScore) {
       await _prefs.setInt('highscore_$gameId', score);
     }
+    // Record to persistent leaderboard history
+    await recordLeaderboardEntry(gameId, score, playerName: playerName);
   }
 
   static int getHighScore(String gameId) {
     return _prefs.getInt('highscore_$gameId') ?? 0;
+  }
+
+  static Future<void> recordLeaderboardEntry(String gameId, int score, {String playerName = 'Player 1'}) async {
+    List<LeaderboardEntry> list = getLeaderboard(gameId);
+    list.add(LeaderboardEntry(
+      playerName: playerName,
+      score: score,
+      date: DateTime.now().toIso8601String().split('T')[0],
+    ));
+    list.sort((a, b) => b.score.compareTo(a.score));
+    if (list.length > 10) {
+      list = list.sublist(0, 10);
+    }
+    final raw = list.map((e) => jsonEncode(e.toJson())).toList();
+    await _prefs.setStringList('leaderboard_$gameId', raw);
+  }
+
+  static List<LeaderboardEntry> getLeaderboard(String gameId) {
+    final raw = _prefs.getStringList('leaderboard_$gameId');
+    if (raw == null || raw.isEmpty) {
+      final high = getHighScore(gameId);
+      if (high > 0) {
+        return [LeaderboardEntry(playerName: 'Best Record', score: high, date: 'Recent')];
+      }
+      return [];
+    }
+    try {
+      return raw.map((item) => LeaderboardEntry.fromJson(jsonDecode(item) as Map<String, dynamic>)).toList();
+    } catch (_) {
+      return [];
+    }
   }
 
   static Future<void> setDarkMode(bool isDark) async {
