@@ -1,5 +1,7 @@
 # 🎮 Super Game Hub — 40+ Flutter Arcade & Board Games
 
+[![Flutter CI](https://github.com/yashpatadiya1724-cmyk/super-game-hub/actions/workflows/ci.yml/badge.svg)](https://github.com/yashpatadiya1724-cmyk/super-game-hub/actions/workflows/ci.yml)
+[![Sponsor](https://img.shields.io/badge/Sponsor-yashpatadiya1724--cmyk-ea4aaa?style=flat&logo=github-sponsors)](https://github.com/sponsors/yashpatadiya1724-cmyk)
 [![Flutter](https://img.shields.io/badge/Flutter-3.43%20Beta-02569B?logo=flutter)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-3.12-0175C2?logo=dart)](https://dart.dev)
 [![Platform](https://img.shields.io/badge/Platforms-Android%20%7C%20iOS%20%7C%20Web%20%7C%20Desktop-4CAF50)](#)
