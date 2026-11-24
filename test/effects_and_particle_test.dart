@@ -71,6 +71,42 @@ void main() {
       alive = particle.update();
       expect(alive, isFalse);
     });
+
+    test('createBurst produces radial particle cluster with valid bounds', () {
+      final particles = GameParticle.createBurst(
+        x: 120.0,
+        y: 240.0,
+        color: Colors.purple,
+        count: 15,
+        maxSpeed: 6.0,
+      );
+
+      expect(particles.length, 15);
+      for (final p in particles) {
+        expect(p.x, 120.0);
+        expect(p.y, 240.0);
+        expect(p.color, Colors.purple);
+        expect(p.alpha, 1.0);
+        expect(p.size, greaterThanOrEqualTo(4.0));
+        // Upward pop makes vy bias negative initially
+        expect(p.vy, lessThan(6.0));
+      }
+
+      // Simulate 5 frames
+      for (int i = 0; i < 5; i++) {
+        for (final p in particles) {
+          p.update();
+        }
+      }
+
+      // Verify particles expanded outwards
+      expect(particles.any((p) => p.x != 120.0), isTrue);
+    });
+
+    test('ParticlePainter shouldRepaint returns true', () {
+      final painter = ParticlePainter([]);
+      expect(painter.shouldRepaint(painter), isTrue);
+    });
   });
 
   group('AudioFeedbackService Configuration Tests', () {
